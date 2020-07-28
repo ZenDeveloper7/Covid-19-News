@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="15dp">
+
+        <FrameLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/source_card_header">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="New Update!"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/alert_message"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message"
+            android:layout_toStartOf="@id/update"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/colorAccent"
+            android:text="Dismiss" />
+
+        <TextView
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Update"
+            android:textColor="@color/colorAccent" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

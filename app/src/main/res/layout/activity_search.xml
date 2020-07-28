@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    android:orientation="vertical"
+    tools:context=".activity.SearchActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/recoveredCardColor"
+        android:elevation="0dp">
+
+        <TextView
+            android:id="@+id/fragmentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Search by Country Name"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp">
+
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_bg"
+            android:fontFamily="@font/montserrat"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingHorizontal="20dp" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/search_icon_black" />
+
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/resultCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp"
+        android:visibility="gone"
+        app:cardCornerRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/lastUpdated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Last updated 2 hours ago"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/countryDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lastUpdated"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:maxLines="2"
+                    android:text="N/A"
+                    android:textColor="@android:color/black"
+                    android:textSize="27sp" />
+
+                <LinearLayout
+                    android:id="@+id/recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/countryDetails"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/recoveredCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/recoveredCardColor"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Recovered"
+                        android:textAlignment="center"
+                        android:textColor="@color/recoveredCardColor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/confirmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/countryDetails"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/deaths"
+                    android:layout_toEndOf="@id/recovered"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/confirmedCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/confirmedCardColor"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Confirmed"
+                        android:textAlignment="center"
+                        android:textColor="@color/confirmedCardColor" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/countryDetails"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/deathCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/deathCardColor"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Deaths"
+                        android:textAlignment="center"
+                        android:textColor="@color/deathCardColor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/newRecovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recovered"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/newRecoveredCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/recoveredCardColor"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="New Recovered"
+                        android:textAlignment="center"
+                        android:textColor="@color/recoveredCardColor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/newConfirmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/confirmed"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/newDeaths"
+                    android:layout_toEndOf="@id/newRecovered"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/newConfirmedCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/confirmedCardColor"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="New Confirmed"
+                        android:textAlignment="center"
+                        android:textColor="@color/confirmedCardColor" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/newDeaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/deaths"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/newDeathCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/deathCardColor"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="New Deaths"
+                        android:textAlignment="center"
+                        android:textColor="@color/deathCardColor" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="15dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Day by Day Report"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/dataLoader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/data_loader_2" />
+
+                    <include layout="@layout/data_loader_2" />
+
+                    <include layout="@layout/data_loader_2" />
+
+                    <include layout="@layout/data_loader_2" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dayByDayRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

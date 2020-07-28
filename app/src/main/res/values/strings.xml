@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Covid-19 News</string>
+    <string name="daily_report">Daily Report</string>
+    <string name="latest_report">Latest Report</string>
+    <string name="api_value"><b>API</b> - https://api.covid19api.com</string>
+    <string name="endpoint_value"><b>Endpoint</b> - https://api.covid19api.com/summary</string>
+    <string name="website_value"><b>Website</b> - https://covid19api.com</string>
+    <string name="disclaimer">The data displayed is approx to the\n current live data.</string>
+    <string name="alert_message">Hey! There is a new update available. Update it from the Playstore to continue using.</string>
+</resources>

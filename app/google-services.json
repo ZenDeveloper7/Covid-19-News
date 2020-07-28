@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "196449747102",
+    "firebase_url": "https://covid-19-news-22180.firebaseio.com",
+    "project_id": "covid-19-news-22180",
+    "storage_bucket": "covid-19-news-22180.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196449747102:android:58b974da75efdac3243b8f",
+        "android_client_info": {
+          "package_name": "com.zen.covid_19news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196449747102-s5b937avnoqnh9mljin0qgerrn1gjgcj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx3k0_nZfU69Go9E5Kr_cMgzaih59w7zY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196449747102-s5b937avnoqnh9mljin0qgerrn1gjgcj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

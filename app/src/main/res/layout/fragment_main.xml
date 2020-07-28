@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor">
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/firstPart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@drawable/bg_design" />
+
+                    <TextView
+                        android:id="@+id/globalReportTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Global Report"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/lastUpdated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/globalReportTitle"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@android:color/white" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/globalReportCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_below="@id/globalReportTitle"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="15dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/chart"
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="15dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/activeColor"
+                                        android:layout_width="15sp"
+                                        android:layout_height="15sp"
+                                        android:layout_gravity="center"
+                                        android:src="@color/confirmedCardColor" />
+
+                                    <TextView
+                                        android:id="@+id/activeText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="5dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Confirmed"
+                                        android:textColor="@android:color/black" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/confirmedColor"
+                                        android:layout_width="15sp"
+                                        android:layout_height="15sp"
+                                        android:layout_gravity="center"
+                                        android:src="@color/recoveredCardColor" />
+
+                                    <TextView
+                                        android:id="@+id/confirmedText"
+                                        android:layout_width="wrap_content"
+
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="5dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Recovered"
+                                        android:textColor="@android:color/black" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/recoveredColor"
+                                        android:layout_width="15sp"
+                                        android:layout_height="15sp"
+                                        android:layout_gravity="center"
+                                        android:src="@color/deathCardColor" />
+
+                                    <TextView
+                                        android:id="@+id/recoveredText"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="5dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Deaths"
+                                        android:textColor="@android:color/black" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/recoveredRateByCountryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:maxLines="2"
+                        android:text="Recovered Rate by Country"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmerLoader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recoveredRateRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:id="@+id/confirmedRateByCountryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:maxLines="2"
+                        android:text="Confirmed Rate by Country"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmerLoader2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/confirmedRateRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:id="@+id/deathRateByCountryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:maxLines="2"
+                        android:text="Death Rate by Country"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmerLoader3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+
+                            <include layout="@layout/data_loader_layout" />
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/deathRateRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="15dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>
